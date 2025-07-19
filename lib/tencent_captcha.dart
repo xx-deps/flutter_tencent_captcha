@@ -60,12 +60,15 @@ class TencentCaptcha {
 
     switch (method) {
       case 'onLoaded':
+        print('onLoaded = $data');
         if (_verifyOnLoaded != null) _verifyOnLoaded!(data);
         break;
       case 'onSuccess':
+        print('onSuccess = $data');
         if (_verifyOnSuccess != null) _verifyOnSuccess!(data);
         break;
       case 'onFail':
+        print('onFail = $data');
         if (_verifyOnFail != null) _verifyOnFail!(data);
         break;
     }
