@@ -24,7 +24,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /**
  * FlutterTencentCaptchaPlugin
@@ -117,10 +116,6 @@ public class FlutterTencentCaptchaPlugin implements FlutterPlugin, MethodCallHan
     // them functionally equivalent. Only one of onAttachedToEngine or registerWith will be called
     // depending on the user's project. onAttachedToEngine or registerWith must both be defined
     // in the same class.
-    public static void registerWith(Registrar registrar) {
-        FlutterTencentCaptchaPlugin plugin = new FlutterTencentCaptchaPlugin();
-        plugin.setupChannel(registrar.messenger(), registrar.activeContext());
-    }
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {

@@ -4,28 +4,25 @@ version '1.0'
 buildscript {
     repositories {
         google()
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    if (project.android.hasProperty("namespace")) {
+        namespace 'org.leanflutter.plugins.flutter_tencent_captcha'
+    }
+    compileSdkVersion 34
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 23
     }
     lintOptions {
         disable 'InvalidPackage'

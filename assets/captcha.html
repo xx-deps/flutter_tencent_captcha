@@ -42,9 +42,11 @@
             bridgeOnLoaded(data);
           },
         });
+        config['loading'] = false;
         let appId = config.appId;
         delete config.appId;
-        const txCaptcha = new TencentCaptcha(
+        try {
+          const txCaptcha = new TencentCaptcha(
           appId,
           (res) => {
             if (res.ret === 0) {
@@ -56,6 +58,13 @@
           config,
         );
         txCaptcha.show();
+        } catch (error) {
+          bridgeOnFail({
+            ret: -1,
+            randstr:'1234567',
+            ticket: 'ticket',
+        });
+        }
       };
 
       window._verify = verify;
